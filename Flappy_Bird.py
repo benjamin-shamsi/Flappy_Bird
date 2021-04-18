@@ -1,3 +1,8 @@
+#Benjamin Shamsi
+
+
+
+
 #Basic settings
 TITLE = 'Flappy Bird'
 WIDTH = 400
