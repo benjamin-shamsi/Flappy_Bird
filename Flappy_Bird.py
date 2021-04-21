@@ -25,6 +25,9 @@ bottom_pipe = Actor('bottom')
 #Background
 BGImage = 'background'
 
+
+score = 0
+
 def draw():
     #Drawing Background
     screen.blit(BGImage, (0, 0))
@@ -33,6 +36,9 @@ def draw():
     bird.draw()
     top_pipe.draw()
     bottom_pipe.draw()
+
+    screen.draw.text('SCORE:', color = (0, 0, 0), fontsize = 30, center = (40, 660))
+    screen.draw.text(score, color = (0, 0, 0), fontsize = 30, center = (40, 650))
 
 
 def update():
@@ -57,6 +63,9 @@ def update():
     #Bird hitting the pipes
     if bird.colliderect(top_pipe) or bird.colliderect(bottom_pipe):
         hit_pipe()
+
+    if top_pipe.pos < 400:
+        score + 1
 
 
 #Move the Bird to the top
@@ -98,8 +107,6 @@ def hit_pipe():
 
     #Bird is dead
     bird.alive = False
-
-#print(top_pipe.width, top_pipe.height)
 
 #First positioning of the Actor and Speed
 reset()
