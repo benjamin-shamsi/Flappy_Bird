@@ -1,8 +1,5 @@
 #Benjamin Shamsi
 
-
-
-
 #Basic settings
 TITLE = 'Flappy Bird'
 WIDTH = 400
@@ -24,7 +21,6 @@ bottom_pipe = Actor('bottom')
 
 #Background
 BGImage = 'background'
-
 
 score = 0
 
@@ -64,7 +60,7 @@ def update():
     if bird.colliderect(top_pipe) or bird.colliderect(bottom_pipe):
         hit_pipe()
 
-    if top_pipe.pos < 400:
+    if top_pipe.right < WIDTH and bird.alive == True:
         score + 1
 
 
