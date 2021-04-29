@@ -34,10 +34,12 @@ def draw():
     bottom_pipe.draw()
 
     screen.draw.text('SCORE:', color = (0, 0, 0), fontsize = 30, center = (40, 660))
-    screen.draw.text(score, color = (0, 0, 0), fontsize = 30, center = (40, 650))
+    screen.draw.text(str(score), color = (0, 0, 0), fontsize = 30, center = (40, 680))
 
 
 def update():
+    global score
+
     bird.speed += gravity
 
     #Moving The Bird Down
@@ -60,8 +62,8 @@ def update():
     if bird.colliderect(top_pipe) or bird.colliderect(bottom_pipe):
         hit_pipe()
 
-    if top_pipe.right < WIDTH and bird.alive == True:
-        score + 1
+    if bottom_pipe.left == WIDTH and bird.alive == True:
+        score += 1
 
 
 #Move the Bird to the top
